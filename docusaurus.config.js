@@ -8,16 +8,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Test Appsmith',
   tagline: 'Open source, low code - Build, Ship and maintain Internal tools',
-  url: 'http://localhost:3000',
-  baseUrl: '/',
+  url: 'https://jnikhila.github.io',
+  baseUrl: '/test-appsmith-docusaurus/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'ignore',
   favicon: 'img/Appsmith-Logo.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'appsmith', // Usually your GitHub org/user name.
-  projectName: 'appsmith-org', // Usually your repo name.
+  organizationName: 'jnikhila', // Usually your GitHub org/user name.
+  projectName: 'test-appsmith-docusaurus', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -131,6 +131,13 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        appId: 'QGHQDC1P8U',
+        apiKey: 'ab1ff4e8eb4cd04a40d4ca39a00b73cc',
+        indexName: 'appsmithdocusaurusindex',
+  
+        //... other Algolia params
       },
     }),
 };
