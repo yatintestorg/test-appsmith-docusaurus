@@ -23,7 +23,7 @@ jobs:
       - name: Build website
         run: |
           yarn build --frozen-lockfile
-          working-directory: /
+          working-directory: ./build
           run: |
             yarn build --frozen-lockfile
             yarn build
