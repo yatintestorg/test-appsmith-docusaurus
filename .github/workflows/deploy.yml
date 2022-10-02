@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn build --frozen-lockfile
-          working-directory: ./build
+          working-directory: .
           run: |
             yarn build --frozen-lockfile
             yarn build
@@ -29,7 +29,7 @@ jobs:
       - name: Build website
         run: |
           yarn build --frozen-lockfile
-          working-directory: ./build
+          working-directory: .
           run: |
             yarn build --frozen-lockfile
             yarn build
