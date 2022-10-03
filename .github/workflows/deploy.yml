@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "test-appsmith-docusaurs/**"
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -17,11 +19,11 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: ./test-appsmith-docusaurus/package-lock.json
-
+          
       - name: Install dependencies
         run: npm ci
       - name: Build website
+        working-directory: test-appsmith-docusaurus
         run: npm run build
 
       # Popular action to deploy to GitHub Pages:
