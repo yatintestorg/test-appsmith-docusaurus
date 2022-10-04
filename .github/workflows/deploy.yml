@@ -33,7 +33,9 @@ jobs:
       - name: Build website
         #working-directory: /home/runner/work/test-appsmith-docusaurus/test-appsmith-docusaurus
         #working-directory: test-appsmith-docusaurus
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
