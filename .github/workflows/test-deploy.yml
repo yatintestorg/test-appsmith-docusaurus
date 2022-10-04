@@ -11,15 +11,19 @@ jobs:
   test-deploy:
     name: Test deployment
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test-appsmith-docusaurus
+        shell: bash
+        
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: yarn
-          cache-dependency-path: '**/package-lock.json'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test build website
-        run: yarn build
+        run:  yarn build
