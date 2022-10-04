@@ -12,6 +12,11 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test-appsmith-docusaurus
+        shell: bash
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
@@ -23,7 +28,7 @@ jobs:
         run: npm ci
       - name: Build website
         #working-directory: /home/runner/work/test-appsmith-docusaurus/test-appsmith-docusaurus
-        working-directory: test-appsmith-docusaurus
+        #working-directory: test-appsmith-docusaurus
         run: npm run build
 
       # Popular action to deploy to GitHub Pages:
