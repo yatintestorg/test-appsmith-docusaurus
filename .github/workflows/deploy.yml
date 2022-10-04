@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -12,19 +12,30 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test-appsmith-docusaurus
+        shell: bash
+
     steps:
+      # Checkout the code
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          fetch-depth: 0
+          
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16.14.0"
           cache: npm
           
       - name: Install dependencies
         run: npm ci
       - name: Build website
         #working-directory: /home/runner/work/test-appsmith-docusaurus/test-appsmith-docusaurus
-        working-directory: test-appsmith-docusaurus
-        run: npm run build
+        #working-directory: test-appsmith-docusaurus
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
